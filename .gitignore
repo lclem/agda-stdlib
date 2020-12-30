@@ -9,7 +9,7 @@
 *.vim
 *~
 .*.swp
-./_build/*
+#./_build/*
 .DS_Store
 dist
 dist-newstyle

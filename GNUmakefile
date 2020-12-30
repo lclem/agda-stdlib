@@ -9,7 +9,7 @@ AGDA=$(AGDA_EXEC) $(RTS_OPTIONS)
 #   cd fix-whitespace
 #   cabal install
 
-test: Everything.agda check-whitespace
+test: Everything.agda #check-whitespace
 	$(AGDA) -i. -isrc README.agda
 
 check-whitespace:
@@ -23,7 +23,7 @@ Everything.agda:
 # command `cabal install` is needed by cabal-install <= 2.4.*. I did
 # not found any problem running both commands with different versions
 # of cabal-install. See Issue #1001.
-	cabal clean && cabal build && cabal install
+	cabal clean && cabal update && cabal build && cabal install --overwrite-policy=always
 	cabal exec -- GenerateEverything
 
 .PHONY: listings
